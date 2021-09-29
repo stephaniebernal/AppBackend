@@ -1,4 +1,4 @@
-package co.edu.unbosque.tiendavirtual2.dao;
+package co.edu.unbosque.tiendavirtual2.servicios;
 
 import java.util.ArrayList;
 import java.util.Optional;

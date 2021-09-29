@@ -1,4 +1,4 @@
-package co.edu.unbosque.tiendavirtual2.api;
+package co.edu.unbosque.tiendavirtual2.controlador;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.unbosque.tiendavirtual2.dao.UsuarioService;
 import co.edu.unbosque.tiendavirtual2.model.UsuarioModel;
+import co.edu.unbosque.tiendavirtual2.servicios.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
@@ -24,7 +24,7 @@ public class UsuarioController {
 	
 	@PostMapping
 	public UsuarioModel registrarUsuario(@RequestBody UsuarioModel usuario) {
-		return usuarioService.registrarUsuario(usuario);
+		return this.usuarioService.registrarUsuario(usuario);
 	}
 	
 	@GetMapping
@@ -32,9 +32,9 @@ public class UsuarioController {
 		return usuarioService.listaUsuarios();
 	}
 	
-	@GetMapping(path = "{cedula}")
-	public Optional<UsuarioModel> consultaCedula(@PathVariable("cedula") Long cedula){
-		return usuarioService.consultaCedula(cedula);
+	@GetMapping(path = "{cedula_usuario}")
+	public Optional<UsuarioModel> consultaCedula(@PathVariable("cedula_usuario") Long cedula_usuario){
+		return this.usuarioService.consultaCedula(cedula_usuario);
 	}
 		
 	@DeleteMapping(path = "{cedula}")
